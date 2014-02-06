@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bikemap</title>
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <script src="http://www.mapquestapi.com/sdk/js/v7.0.s/mqa.toolkit.js?key=Fmjtd%7Cluur2162nq%2C8l%3Do5-90z05a"></script>
+    <script src="http://content.mqcdn.com/sdk/js/v7.0.1/mqa.module.directions.js"></script>
+    <script src="http://content.mqcdn.com/sdk/js/v7.0.1/mqa.module.routeio.js"></script>
+    <script src="http://content.mqcdn.com/sdk/js/v7.0.1/mqa.module.route.js"></script>
+    <script src="http://content.mqcdn.com/sdk/js/v7.0.1/mqa.module.ribbon.js"></script>
+    <script src="http://content.mqcdn.com/sdk/js/v7.0.1/mqa.module.shapes.js"></script>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+
+    
+</head>
+<body >
+
+<%= yield %>
+
+</body>
+</html>

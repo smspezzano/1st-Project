@@ -1,0 +1,29 @@
+<div id='addRoute'>
+<form>
+
+<h3>Start Location: </h3><input type="text" id='startLocation' name="startLocation" size="60" value="<%= params["startLocation"] %>"><br>
+<h3>End Location: </h3><input type="text" id='endLocation' name="endLocation" size="60" value="<%= params["endLocation"]%>"><br>
+<h3>Road Strategy Guide:</h3>
+
+<% @strategies.each do |strategy| %>
+
+<input class="roadGradeStrategy" name="roadGradeStrategy" 
+type="radio" value="<%=strategy[0]%>" <%= "checked='checked'" if strategy[0].to_s == params[:roadGradeStrategy] %> />
+<label for="<%=strategy[0]%>"><%= strategy[1]%></label>
+
+<%end%>
+
+<br>
+
+<input type="submit" onclick='addRoute'>
+
+</form>
+</div>
+<div id='map' style='width:750px; height:400px;'></div>
+ 
+<div id="narrative" style="width:800px;"></div>
+
+<div id='routeChart' style='display: block'></div>
+
+<div id='profileResponse' style='dispaly: block'></div>
+ 
