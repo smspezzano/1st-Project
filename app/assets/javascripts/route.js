@@ -65,7 +65,6 @@ MQA.EventUtil.observe(window, 'load', function() {
       new MQA.MapCornerPlacement(MQA.MapCorner.BOTTOM_RIGHT)
     );
 
-    map.enableMouseWheelZoom();
 
     //THIS IS FOR THE ROUTEING
       var selectedVal = "";

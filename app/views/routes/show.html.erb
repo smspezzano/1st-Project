@@ -6,9 +6,10 @@
 <% params[:endLocation] = @route.endLocation %>
 <% params[:roadGradeStrategy] = @route.roadGradeStrategy %>
 <%#binding.pry %>
+<div class='row'>
 <%= render partial: 'show_form'%>
 <button id="displayNarrative" class="btn btn-primary">Show Nav</button>
-
+</div>
 <div id="narrative" class="hidden"></div>
 
 <div id='routeChart'></div>

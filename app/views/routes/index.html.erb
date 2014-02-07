@@ -1,10 +1,13 @@
+<div id='title'>
+<h1>Get The Perfect Elevation</h1>
+</div>
+
 <div id='addRoute'>
 <%= render partial: "route_form" %>
 <% unless params["startLocation"].nil? && params["endLocation"].nil?  %>
 <%= render partial: "save_form" %>
 <button id="displayNarrative" class="btn btn-primary">Show Nav</button>
 <%end%>
-
 </div>
 <div id="narrative" class="hidden"></div>
 

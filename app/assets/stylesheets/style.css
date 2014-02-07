@@ -1,6 +1,26 @@
 /** {
 	border: 1px solid black;
 }*/
+body {
+	background-color: rgba(236, 240, 241,1.0);
+}
+h1 {
+	font-family: 'Marko One', serif;
+}
+h2{
+	font-family: 'Marko One', serif;
+}
+h3 {
+	font-family: 'Marko One', serif;
+}
+h4 {
+	font-family: 'Marko One', serif;
+}
+
+#title {
+	text-align: center;
+	margin: 5px;
+}
 
 #inputL {
 	float: left;
@@ -27,11 +47,15 @@
 
 #addRoute {
 	margin-top: 60px;
-	margin-left: 60px;
+	margin-left:auto;
+	margin-right:auto;
+	width:70%;
 }
 
 #map {
-	margin-left: 20px;
+	margin-left: 40px;
+	border: 1px solid white;
+	margin-top: 5px;
 }
 
 #startL {
@@ -50,4 +74,29 @@
 		
 #narrative tbody tr {
 	max-width: 100px;
+}
+
+#narrative {
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+	padding: 5px;
+}
+
+button {
+	display: inline;
+}
+
+input {
+	border-radius: 5px;
+}
+
+#routeChart{
+	margin-left:auto;
+	margin-right:auto;
+	width:70%;
+}
+
+#soNav {
+	background-color: rgba(189, 195, 199,1.0);
 }
