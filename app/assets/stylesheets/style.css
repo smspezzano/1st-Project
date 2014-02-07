@@ -1,4 +1,45 @@
+* {
+	border: 1px solid black;
+}
+#inputL {
+	float: left;
+	margin-left: 20px;
+	padding: 5px;
+
+}
+
+#inputR {
+	float: right;
+	margin-left: 20px;
+	padding: 5px;
+
+}
+ 
+
+#buttons {
+	/*float: right;*/
+	/*max-width: 500px;*/
+}
+
+#usersShow {
+	margin-top: 60px;
+}
+
 #addRoute {
-	margin: 0 auto;
-	width: 50%;
+	margin-top: 60px;
+	margin-left: 60px;
+}
+
+#map {
+	margin-top: 20px;
+}
+
+#startL {
+	float: left;
+	padding: 5px;
+}
+
+#endL {
+	flaot: right;
+	padding: 5px;
 }

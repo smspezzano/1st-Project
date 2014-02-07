@@ -1,4 +1,5 @@
 class RoutesController < ApplicationController
+	before_filter :signed_in_user, only: [:create, :new]
 
 	def index
 		@strategies = {:DEFAULT_STRATEGY => 'Default Strategy', :AVOID_UP_HILL => 'Avoid up hill', 
@@ -8,16 +9,24 @@ class RoutesController < ApplicationController
 		}
 	end
 
-	def create
-		new_route= params.require(:route).permit(:startLocation, :endLocation, :roadGradeStrategy)
-		@route= Route.new(new_route)
-		@results = getRoute(@route.startLocation, @route.endLocation, @route.roadGradeStrategy)
-		redirect_to @route
+	def new
+		@route= Route.new
 	end
 
-	def show
-	    @route = Route.find(params[:id])
+	def create
+		route= Route.new(startLocation: params[:startLocation], endLocation: params[:endLocation],endLocation: params[:roadGradeStrategy])
+		route.user = current_user
+		route.save
+
+		#binding.pry
+		redirect_to user_path(route.user)
 	end
+
+	# def show
+	# 	id = params[:id]
+	#     @route = Route.find(params[user_id: id])
+	    
+	# end
 
 
 end
