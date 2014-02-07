@@ -100,3 +100,14 @@ input {
 #soNav {
 	background-color: rgba(189, 195, 199,1.0);
 }
+
+#signUP {
+	/*margin-left:auto;
+	margin-right:auto;
+	width:70%;*/
+}
+
+#signupheader {
+	margin-left: 350px;
+	margin-right:5px;
+}

@@ -17,6 +17,7 @@ MQA.EventUtil.observe(window, 'load', function() {
           document.getElementById('map').style.width = Math.floor(window.innerWidth*.9)+"px";
           document.getElementById('map').style.height = Math.floor(window.innerHeight*.9)+"px";
           document.getElementById('narrative').style.width = Math.floor(window.innerWidth*.9)+"px";
+          document.getElementById('routeChart').style.width = Math.floor(window.innerWidth*.9)+"px";
          
         }
       }
@@ -189,7 +190,7 @@ function doChart(sessionID) {
 
   var newChartURL = CHART;
 
-  newChartURL += '&inFormat=kvp&shapeFormat=raw&width=425&height=350&sessionId=' + sessionID;
+  newChartURL += '&inFormat=kvp&shapeFormat=raw&height=350&sessionId=' + sessionID;
   var newURL = newChartURL;
   script.src = newURL;
 
