@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Bikemap::Application.config.secret_key_base = '776bd1c8d741ac8f79a801fc53b24d4c23159a0e6c1dc81e812fcb84be5ca3fa764313a3fa76799e7b79b8a2f38ad0b2144a25635a349472ae2da3da3a3a2165'
+Bikemap::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
