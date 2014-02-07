@@ -2,5 +2,5 @@
   <%= f.hidden_field(:startLocation, value: params["startLocation"]) %>
   <%= f.hidden_field(:endLocation, value: params["endLocation"]) %>
   <%= f.hidden_field(:roadGradeStrategy, value: params['roadGradeStrategy']) %>
-  <%= f.submit "Save Route" %>
+  <%= f.submit "Save Route", class: "btn btn-primary" %>
 <% end %>

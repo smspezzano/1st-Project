@@ -1,6 +1,7 @@
-* {
+/** {
 	border: 1px solid black;
-}
+}*/
+
 #inputL {
 	float: left;
 	margin-left: 20px;
@@ -12,7 +13,6 @@
 	float: right;
 	margin-left: 20px;
 	padding: 5px;
-
 }
  
 
@@ -31,7 +31,7 @@
 }
 
 #map {
-	margin-top: 20px;
+	margin-left: 20px;
 }
 
 #startL {
@@ -42,4 +42,12 @@
 #endL {
 	flaot: right;
 	padding: 5px;
+}
+
+.hidden {
+	visibility: false;
+}
+		
+#narrative tbody tr {
+	max-width: 100px;
 }

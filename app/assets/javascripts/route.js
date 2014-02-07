@@ -1,4 +1,25 @@
 MQA.EventUtil.observe(window, 'load', function() {
+
+
+    setMapSize();
+    window.onresize = function(event) {
+          setMapSize();
+          var resizeMap = new MQA.Size(document.getElementById('map').style.width,document.getElementById('map').style.height);
+          window.map.setSize(resizeMap);
+        }
+
+    function setMapSize(){
+        console.log("SET THE MAPPPPPPPP!!!!")
+        if (MQA.browser.name == "msie"){
+          document.getElementById('map').style.width = document.body.offsetWidth - 20;
+          document.getElementById('map').style.height = document.body.offsetHeight - 20;
+        } else {
+          document.getElementById('map').style.width = Math.floor(window.innerWidth*.9)+"px";
+          document.getElementById('map').style.height = Math.floor(window.innerHeight*.9)+"px";
+          document.getElementById('narrative').style.width = Math.floor(window.innerWidth*.9)+"px";
+         
+        }
+      }
   /*Create an object for options*/
           /*Create an object for options*/
   var options={
@@ -19,6 +40,8 @@ MQA.EventUtil.observe(window, 'load', function() {
       new MQA.LargeZoom(),
       new MQA.MapCornerPlacement(MQA.MapCorner.TOP_LEFT, new MQA.Size(5,5))
     );
+
+
 
     map.addControl(new MQA.TrafficToggle());
 

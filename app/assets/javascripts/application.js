@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function(){
+$('#displayNarrative').on('click', function(){
+	document.getElementById('narrative').classList.toggle("hidden");
+})
+});

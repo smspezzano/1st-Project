@@ -2,15 +2,17 @@
 <%= render partial: "route_form" %>
 <% unless params["startLocation"].nil? && params["endLocation"].nil?  %>
 <%= render partial: "save_form" %>
+<button id="displayNarrative" class="btn btn-primary">Show Nav</button>
 <%end%>
 
 </div>
+<div id="narrative" class="hidden"></div>
 
-<div id='map' style='width:750px; height:400px;'></div>
+<div id='routeChart'></div>
+
+<div id='map'></div>
  
-<div id="narrative" style="width:800px;"></div>
 
-<div id='routeChart' style='display: block'></div>
 
-<div id='profileResponse' style='dispaly: block'></div>
+<!-- <div id='profileResponse'></div> -->
  

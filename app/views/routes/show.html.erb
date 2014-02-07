@@ -1,2 +1,23 @@
+<div id='addRoute'>
+<div id='showRoute'>
 <h1>Here is your route:</h1>
-<%= @results.sessionId%>
+
+<% params[:startLocation] = @route.startLocation %>
+<% params[:endLocation] = @route.endLocation %>
+<% params[:roadGradeStrategy] = @route.roadGradeStrategy %>
+<%#binding.pry %>
+<%= render partial: 'show_form'%>
+<button id="displayNarrative" class="btn btn-primary">Show Nav</button>
+
+<div id="narrative" class="hidden"></div>
+
+<div id='routeChart'></div>
+
+<div id='map'></div>
+ 
+
+
+<!-- <div id='profileResponse' style='dispaly: block'></div>
+ -->
+</div>
+</div>
