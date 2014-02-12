@@ -11,6 +11,7 @@ class RoutesController < ApplicationController
 
 	def new
 		@route= Route.new
+		render nothing: true
 	end
 
 	def create

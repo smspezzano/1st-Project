@@ -46,6 +46,17 @@ group :development do
 	gem 'pry-byebug'
 	gem 'dotenv-rails'
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+  gem 'dotenv-rails'
+end
+
 gem 'rails_12factor', group: :production
 ruby "2.0.0" 
 # Use ActiveModel has_secure_password
