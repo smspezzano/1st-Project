@@ -1,48 +1,48 @@
 MQA.EventUtil.observe(window, 'load', function() {
-
-
+  
+  // call the setMapSize right away to ensure that the map fits the user's screen
+  setMapSize();
+  window.onresize = function(event) {
     setMapSize();
-    window.onresize = function(event) {
-          setMapSize();
-          var resizeMap = new MQA.Size(document.getElementById('map').style.width,document.getElementById('map').style.height);
-          window.map.setSize(resizeMap);
-        }
+    var resizeMap = new MQA.Size($('#map')[0]
+      .style.width,$('#map')[0].style.height);
+    window.map.setSize(resizeMap);
+  };
 
-    function setMapSize(){
-        console.log("SET THE MAPPPPPPPP!!!!")
-        if (MQA.browser.name == "msie"){
-          document.getElementById('map').style.width = document.body.offsetWidth - 20;
-          document.getElementById('map').style.height = document.body.offsetHeight - 20;
-        } else {
-          document.getElementById('map').style.width = Math.floor(window.innerWidth*.9)+"px";
-          document.getElementById('map').style.height = Math.floor(window.innerHeight*.9)+"px";
-          document.getElementById('narrative').style.width = Math.floor(window.innerWidth*.9)+"px";
-          document.getElementById('routeChart').style.width = Math.floor(window.innerWidth*.9)+"px";
-         
-        }
-      }
-  /*Create an object for options*/
-          /*Create an object for options*/
+  // This will set the map size and elevation chart to fit the user's screen
+  function setMapSize(){
+    if (MQA.browser.name == "msie"){
+      $('#map')[0].style.width = document.body.offsetWidth - 20;
+      $('#map')[0].style.height = document.body.offsetHeight - 20;
+    } else {
+      $('#map')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
+      $('#map')[0].style.height = Math.floor(window.innerHeight*.9)+"px";
+      $('#narrative')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
+      $('#routeChart')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
+     
+    }
+  }
+
+  //Create an object for options
   var options={
-    elt:document.getElementById('map'),        /*ID of element on the page where you want the map added*/
-    zoom:10,                                   /*initial zoom level of map*/
-    latLng:{lat:37.7833, lng:-122.4167},   /*center of map in latitude/longitude*/
-    mtype:'map',                               /*map type (map)*/
-    bestFitMargin:0,                           /*margin offset from the map viewport when applying a bestfit on shapes*/
-    zoomOnDoubleClick:true                     /*zoom in when double-clicking on map*/
+    elt:$('#map')[0],       // ID of element on the page where the map will be added
+    zoom:10,                                  // initial zoom level of map
+    latLng:{lat:37.7833, lng:-122.4167},      // center of map in latitude/longitude 
+    mtype:'map',                               
+    bestFitMargin:0,                          // margin offset from the map viewport when applying a bestfit on shapes
+    zoomOnDoubleClick:true                    // zoom in when double-clicking on map
   };
   window.map = new MQA.TileMap(options);
 
   /*Construct an instance of MQA.TileMap with the options object*/
   
-  
-  MQA.withModule('largezoom','traffictoggle','viewoptions','geolocationcontrol','insetmapcontrol','mousewheel','directions', function() {
+  // add ex
+  MQA.withModule('largezoom','traffictoggle','viewoptions','geolocationcontrol',
+  'insetmapcontrol','mousewheel','directions', function() {
     map.addControl(
       new MQA.LargeZoom(),
       new MQA.MapCornerPlacement(MQA.MapCorner.TOP_LEFT, new MQA.Size(5,5))
     );
-
-
 
     map.addControl(new MQA.TrafficToggle());
 
@@ -67,7 +67,7 @@ MQA.EventUtil.observe(window, 'load', function() {
     );
 
 
-    //THIS IS FOR THE ROUTEING
+    //THIS IS FOR THE ROUTING
       var selectedVal = "";
       var selected = $("input[type='radio'][name='roadGradeStrategy']:checked");
       if (selected.length > 0) {
