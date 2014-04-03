@@ -1,48 +1,48 @@
 MQA.EventUtil.observe(window, 'load', function() {
-
-
+  
+  // call the setMapSize right away to ensure that the map fits the user's screen
+  setMapSize();
+  window.onresize = function(event) {
     setMapSize();
-    window.onresize = function(event) {
-          setMapSize();
-          var resizeMap = new MQA.Size(document.getElementById('map').style.width,document.getElementById('map').style.height);
-          window.map.setSize(resizeMap);
-        }
+    var resizeMap = new MQA.Size($('#map')[0]
+      .style.width,$('#map')[0].style.height);
+    window.map.setSize(resizeMap);
+  };
 
-    function setMapSize(){
-        console.log("SET THE MAPPPPPPPP!!!!")
-        if (MQA.browser.name == "msie"){
-          document.getElementById('map').style.width = document.body.offsetWidth - 20;
-          document.getElementById('map').style.height = document.body.offsetHeight - 20;
-        } else {
-          document.getElementById('map').style.width = Math.floor(window.innerWidth*.9)+"px";
-          document.getElementById('map').style.height = Math.floor(window.innerHeight*.9)+"px";
-          document.getElementById('narrative').style.width = Math.floor(window.innerWidth*.9)+"px";
-          document.getElementById('routeChart').style.width = Math.floor(window.innerWidth*.9)+"px";
-         
-        }
-      }
-  /*Create an object for options*/
-          /*Create an object for options*/
+  // This will set the map size and elevation chart to fit the user's screen
+  function setMapSize(){
+    if (MQA.browser.name == "msie"){
+      $('#map')[0].style.width = document.body.offsetWidth - 20;
+      $('#map')[0].style.height = document.body.offsetHeight - 20;
+    } else {
+      $('#map')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
+      $('#map')[0].style.height = Math.floor(window.innerHeight*.9)+"px";
+      $('#narrative')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
+      $('#routeChart')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
+     
+    }
+  }
+
+  //Create an object for options
   var options={
-    elt:document.getElementById('map'),        /*ID of element on the page where you want the map added*/
-    zoom:10,                                   /*initial zoom level of map*/
-    latLng:{lat:37.7833, lng:-122.4167},   /*center of map in latitude/longitude*/
-    mtype:'map',                               /*map type (map)*/
-    bestFitMargin:0,                           /*margin offset from the map viewport when applying a bestfit on shapes*/
-    zoomOnDoubleClick:true                     /*zoom in when double-clicking on map*/
+    elt:$('#map')[0],       // ID of element on the page where the map will be added
+    zoom:10,                                  // initial zoom level of map
+    latLng:{lat:37.7833, lng:-122.4167},      // center of map in latitude/longitude 
+    mtype:'map',                               
+    bestFitMargin:0,                          // margin offset from the map viewport when applying a bestfit on shapes
+    zoomOnDoubleClick:true                    // zoom in when double-clicking on map
   };
   window.map = new MQA.TileMap(options);
 
   /*Construct an instance of MQA.TileMap with the options object*/
   
-  
-  MQA.withModule('largezoom','traffictoggle','viewoptions','geolocationcontrol','insetmapcontrol','mousewheel','directions', function() {
+  // add ex
+  MQA.withModule('largezoom','traffictoggle','viewoptions','geolocationcontrol',
+  'insetmapcontrol','mousewheel','directions', function() {
     map.addControl(
       new MQA.LargeZoom(),
       new MQA.MapCornerPlacement(MQA.MapCorner.TOP_LEFT, new MQA.Size(5,5))
     );
-
-
 
     map.addControl(new MQA.TrafficToggle());
 
@@ -67,30 +67,30 @@ MQA.EventUtil.observe(window, 'load', function() {
     );
 
 
-    //THIS IS FOR THE ROUTEING
-      var selectedVal = "";
-      var selected = $("input[type='radio'][name='roadGradeStrategy']:checked");
-      if (selected.length > 0) {
-        selectedVal = selected.val();
-      } else {
-          selectedVal = 'DEFAULT_STRATEGY'
-      };
-      /*Add options.*/
+    //THIS IS FOR THE ROUTING
+    var selectedVal = "";
+    var selected = $("input[type='radio'][name='roadGradeStrategy']:checked");
+    if (selected.length > 0) {
+      selectedVal = selected.val();
+    } else {
+      selectedVal = 'DEFAULT_STRATEGY';
+    }
+    /*Add options.*/
     map.addRoute([
       {street: document.getElementById('startLocation').value},
       {street: document.getElementById('endLocation').value}],
-      {routeOptions: { ambiguities:'ignore', 
-      					routeType:'bicycle', 
-      					manMaps:'false', 
-      					roadGradeStrategy: selectedVal
-      	}, 
-        ribbonOptions: {draggable:true}
+      {routeOptions: {ambiguities:'ignore', 
+      routeType:'bicycle', 
+      manMaps:'false', 
+      roadGradeStrategy: selectedVal
+      }, 
+      ribbonOptions: {draggable:true}
       },
       /*Add the callback function to the route call.*/
       displayNarrative
     );
-  });
-});
+  }); // close MQA.withModule
+}); // close MQA.EventUtil.observe
 
 
   // Construct an instance of MQA.TileMap with the options object
@@ -131,7 +131,7 @@ var sessionID = thissessionID;
   }
   getProfile(sessionID);
   doChart(sessionID);
-};
+}
 
 var PROFILE = 'http://open.mapquestapi.com/elevation/v1/profile?key=Fmjtd%7Cluur2162nq%2C8l%3Do5-90z05a&callback=handleProfileResponse&shapeFormat=raw';
 var CHART = 'http://open.mapquestapi.com/elevation/v1/chart?key=Fmjtd%7Cluur2162nq%2C8l%3Do5-90z05a&shapeFormat=raw';
@@ -148,40 +148,40 @@ function getProfile(sessionID) {
   var newURL = basicURL;
   script.src = newURL;
   document.getElementsByTagName('head')[0].appendChild(script);
-};
+}
 
 
 function handleProfileResponse(response) {
   var chartArray = response.elevationProfile;
   var chartArray2 = chartArray;
-    var html = '';    
-    var i = 0;
-    html += '<table>';
-    html += '<tr><th>Elevation</th><th>Distance</th></tr>';
-    html += '<tbody>';  
-    var incrementer;
-    if(chartArray.length <= 20){
-      incrementer = 1;
-    } else {
-      incrementer = Math.round(chartArray.length/20);
-    };
-    for(; i < chartArray.length; i += incrementer ) {
-      html += '<tr><td>';
-      html += chartArray[i].height;
-      html += '</td>';
-      html += '<td>';
-      html += chartArray[i].distance;
-      html += '</td>';
-    };
-    html += '<tr><th>Change</th></tr>';
-    for(i=0; i < chartArray2.length - 1; i += incrementer) {
-      html += '<td>';
-      html += ((chartArray2[i+1].height) - (chartArray2[i].height)).toFixed(2);
-      html += '</td></tr>';
-    };
-    html += '</tbody></table>';
-    document.getElementById('profileResponse').innerHTML = html;
-};
+  var html = '';    
+  var i = 0;
+  html += '<table>';
+  html += '<tr><th>Elevation</th><th>Distance</th></tr>';
+  html += '<tbody>';  
+  var incrementer;
+  if(chartArray.length <= 20){
+    incrementer = 1;
+  } else {
+    incrementer = Math.round(chartArray.length/20);
+  }
+  for(; i < chartArray.length; i += incrementer ) {
+    html += '<tr><td>';
+    html += chartArray[i].height;
+    html += '</td>';
+    html += '<td>';
+    html += chartArray[i].distance;
+    html += '</td>';
+  }
+  html += '<tr><th>Change</th></tr>';
+  for(i=0; i < chartArray2.length - 1; i += incrementer) {
+    html += '<td>';
+    html += ((chartArray2[i+1].height) - (chartArray2[i].height)).toFixed(2);
+    html += '</td></tr>';
+  }
+  html += '</tbody></table>';
+  document.getElementById('profileResponse').innerHTML = html;
+}
 
 
 function doChart(sessionID) {
@@ -195,8 +195,4 @@ function doChart(sessionID) {
   script.src = newURL;
 
   document.getElementById('routeChart').innerHTML = '<IMG SRC ="' + script.src + '">';    
-};
-
-
-
-
+}
