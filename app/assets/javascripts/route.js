@@ -68,29 +68,29 @@ MQA.EventUtil.observe(window, 'load', function() {
 
 
     //THIS IS FOR THE ROUTING
-      var selectedVal = "";
-      var selected = $("input[type='radio'][name='roadGradeStrategy']:checked");
-      if (selected.length > 0) {
-        selectedVal = selected.val();
-      } else {
-          selectedVal = 'DEFAULT_STRATEGY'
-      };
-      /*Add options.*/
+    var selectedVal = "";
+    var selected = $("input[type='radio'][name='roadGradeStrategy']:checked");
+    if (selected.length > 0) {
+      selectedVal = selected.val();
+    } else {
+      selectedVal = 'DEFAULT_STRATEGY';
+    }
+    /*Add options.*/
     map.addRoute([
       {street: document.getElementById('startLocation').value},
       {street: document.getElementById('endLocation').value}],
-      {routeOptions: { ambiguities:'ignore', 
-      					routeType:'bicycle', 
-      					manMaps:'false', 
-      					roadGradeStrategy: selectedVal
-      	}, 
-        ribbonOptions: {draggable:true}
+      {routeOptions: {ambiguities:'ignore', 
+      routeType:'bicycle', 
+      manMaps:'false', 
+      roadGradeStrategy: selectedVal
+      }, 
+      ribbonOptions: {draggable:true}
       },
       /*Add the callback function to the route call.*/
       displayNarrative
     );
-  });
-});
+  }); // close MQA.withModule
+}); // close MQA.EventUtil.observe
 
 
   // Construct an instance of MQA.TileMap with the options object
@@ -131,7 +131,7 @@ var sessionID = thissessionID;
   }
   getProfile(sessionID);
   doChart(sessionID);
-};
+}
 
 var PROFILE = 'http://open.mapquestapi.com/elevation/v1/profile?key=Fmjtd%7Cluur2162nq%2C8l%3Do5-90z05a&callback=handleProfileResponse&shapeFormat=raw';
 var CHART = 'http://open.mapquestapi.com/elevation/v1/chart?key=Fmjtd%7Cluur2162nq%2C8l%3Do5-90z05a&shapeFormat=raw';
@@ -148,40 +148,40 @@ function getProfile(sessionID) {
   var newURL = basicURL;
   script.src = newURL;
   document.getElementsByTagName('head')[0].appendChild(script);
-};
+}
 
 
 function handleProfileResponse(response) {
   var chartArray = response.elevationProfile;
   var chartArray2 = chartArray;
-    var html = '';    
-    var i = 0;
-    html += '<table>';
-    html += '<tr><th>Elevation</th><th>Distance</th></tr>';
-    html += '<tbody>';  
-    var incrementer;
-    if(chartArray.length <= 20){
-      incrementer = 1;
-    } else {
-      incrementer = Math.round(chartArray.length/20);
-    };
-    for(; i < chartArray.length; i += incrementer ) {
-      html += '<tr><td>';
-      html += chartArray[i].height;
-      html += '</td>';
-      html += '<td>';
-      html += chartArray[i].distance;
-      html += '</td>';
-    };
-    html += '<tr><th>Change</th></tr>';
-    for(i=0; i < chartArray2.length - 1; i += incrementer) {
-      html += '<td>';
-      html += ((chartArray2[i+1].height) - (chartArray2[i].height)).toFixed(2);
-      html += '</td></tr>';
-    };
-    html += '</tbody></table>';
-    document.getElementById('profileResponse').innerHTML = html;
-};
+  var html = '';    
+  var i = 0;
+  html += '<table>';
+  html += '<tr><th>Elevation</th><th>Distance</th></tr>';
+  html += '<tbody>';  
+  var incrementer;
+  if(chartArray.length <= 20){
+    incrementer = 1;
+  } else {
+    incrementer = Math.round(chartArray.length/20);
+  }
+  for(; i < chartArray.length; i += incrementer ) {
+    html += '<tr><td>';
+    html += chartArray[i].height;
+    html += '</td>';
+    html += '<td>';
+    html += chartArray[i].distance;
+    html += '</td>';
+  }
+  html += '<tr><th>Change</th></tr>';
+  for(i=0; i < chartArray2.length - 1; i += incrementer) {
+    html += '<td>';
+    html += ((chartArray2[i+1].height) - (chartArray2[i].height)).toFixed(2);
+    html += '</td></tr>';
+  }
+  html += '</tbody></table>';
+  document.getElementById('profileResponse').innerHTML = html;
+}
 
 
 function doChart(sessionID) {
@@ -195,8 +195,4 @@ function doChart(sessionID) {
   script.src = newURL;
 
   document.getElementById('routeChart').innerHTML = '<IMG SRC ="' + script.src + '">';    
-};
-
-
-
-
+}
