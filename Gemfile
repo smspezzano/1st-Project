@@ -35,18 +35,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
-	gem 'quiet_assets'
-	gem 'better_errors'
-	gem 'binding_of_caller'
-	gem 'meta_request'
-	gem 'pry'
-	gem 'awesome_print'	
-	gem 'pry-rails'
-	gem 'pry-byebug'
-	gem 'dotenv-rails'
-end
-
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'launchy'
@@ -55,6 +43,14 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'dotenv-rails'
+  gem 'binding_of_caller'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'awesome_print' 
+  gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'meta_request'
+  gem 'pry-rails'
 end
 
 gem 'rails_12factor', group: :production

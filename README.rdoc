@@ -1,28 +1,20 @@
-== README
+Route Elevation was my first Rails app and project at General Assembly. This app
+is a bike and running route planner that allows the user to select a desired 
+elevation such as 'avoid all hills' or 'favor up hills' to get the perfect workout.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The inspiration for this came from my use of Amar Pai's http://amarpai.com/bikemap/.
 
-Things you may want to cover:
+In addition to that I bike a lot around San Francisco, CA and if you haven't been 
+here before there are plenty of big hills and I wanted a way to both avoid them
+and seek them out. 
 
-* Ruby version
+Route Elevation runs on Ruby version 2.0.0, Rails version 4.0.2, and uses 
+PostgreSQL as the database. 
 
-* System dependencies
+It is also powered by the MapQuest JavaScript API, http://developer.mapquest.com/web/documentation/sdk/javascript/v7.0. You will need an API key to use MapQuest's
+API, http://developer.mapquest.com/web/info/account/app-keys. I decided to use MapQuest because there is an option to pass in hill params such as 'avoid all hills'. 
 
-* Configuration
+There are a few RSpec tests and I plan on adding more later. Those can be run with
+the 'bundle exec rspec spec/controllers/routes_controller_spec.rb' command. 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Like all projects this is a continual work in progress and open source.  
