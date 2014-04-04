@@ -19,6 +19,21 @@ h4 {
 	font-family: 'Marko One', serif;
 }
 
+p {
+	font-family: 'Marko One', serif;
+	font-size: 15px;
+}
+
+p a {
+	font-family: 'Marko One', serif;
+	color: #F7CA18;
+	font-size: 15px;
+}
+
+p a:hover {
+	color: #019875;
+}
+
 #title {
 	text-align: center;
 	margin: 5px;
@@ -83,8 +98,11 @@ h4 {
 #narrative {
 	margin-left:auto;
 	margin-right:auto;
-	width:80%;
+	width:50%;
 	padding: 5px;
+	color: black;
+	font-size: 18px;
+	font-family: 'Marko One', serif;
 }
 
 button {
@@ -98,7 +116,7 @@ input {
 #routeChart{
 	margin-left:auto;
 	margin-right:auto;
-	width:70%;
+	width: 50%;
 }
 
 #soNav {
@@ -136,4 +154,12 @@ input {
 
 	#endR {
 	}
+
+	#routeChart{
+		margin-left:auto;
+		margin-right:auto;
+		width: 99%;
+	}
+
+	#narrative {}
 }

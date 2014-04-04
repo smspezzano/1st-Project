@@ -15,7 +15,8 @@
 //= require turbolinks
 //= require_tree .
 $(function(){
-$('#displayNarrative').on('click', function(){
-	document.getElementById('narrative').classList.toggle("hidden");
-})
+  $('#displayNarrative').on('click', function(event){
+    event.preventDefault();
+    document.getElementById('narrative').classList.toggle("hidden");
+  });
 });
