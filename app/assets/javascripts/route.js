@@ -15,7 +15,7 @@ MQA.EventUtil.observe(window, 'load', function() {
       $('#map')[0].style.width = document.body.offsetWidth - 20;
       $('#map')[0].style.height = document.body.offsetHeight - 20;
     } else {
-      $('#map')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
+      $('#map')[0].style.width = Math.floor(window.innerWidth*.97)+"px";
       $('#map')[0].style.height = Math.floor(window.innerHeight*.9)+"px";
       $('#narrative')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
       $('#routeChart')[0].style.width = Math.floor(window.innerWidth*.9)+"px";

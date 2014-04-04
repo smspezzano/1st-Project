@@ -1,23 +1,31 @@
 <form>
+  <div class="row">
 	<div id='startL'>
-<h3>Start Location: </h3><input type="text" id='startLocation' name="startLocation" size="60" value="<%= params["startLocation"] %>">
+    <div class="col-xs-12 col-lg-6">
+      <h3>Start Location:</h3><input type="text" id='startLocation' placeholder='Example: 123 Bike Ave San Francisco, CA' name="startLocation" size="50" value="<%= params["startLocation"] %>">
+    </div>
 	</div>
 	<div id='endL'>
-<h3>End Location: </h3><input type="text" id='endLocation' name="endLocation" size="60" value="<%= params["endLocation"]%>">
+    <div class="col-xs-12 col-lg-6">
+      <h3>End Location:</h3><input type="text" id='endLocation' placeholder='Example: 123 Bike Ave San Francisco, CA' name="endLocation" size="50" value="<%= params["endLocation"]%>">
+    </div>
 	</div>
-<h3>Road Strategy Guide:</h3>
+  <div class="col-xs-12">
+    <div class="strategy">
+    <h3>Road Strategy Guide:</h3>
 
-<% @strategies.each do |strategy| %>
+    <% @strategies.each do |strategy| %>
 
-<input class="roadGradeStrategy" name="roadGradeStrategy" 
-type="radio" value="<%=strategy[0]%>" <%= "checked='checked'" if strategy[0].to_s == params[:roadGradeStrategy] %> />
-<label for="<%=strategy[0]%>"><%= strategy[1]%></label>
+      <input class="roadGradeStrategy" name="roadGradeStrategy" 
+      type="radio" value="<%=strategy[0]%>" <%= "checked='checked'" if strategy[0].to_s == params[:roadGradeStrategy] %> />
+      <label for="<%=strategy[0]%>"><%= strategy[1]%></label>
 
-<%end%>
-	
-<br>
+    <%end%>
+    
+  <br>
 
-<input type="submit" class="btn btn-primary" name="route" value="Submit" onclick="showBtn()" >
-
+  <input type="submit" class="btn btn-success" name="route" value="Submit" onclick="showBtn()" >
+  </div>
+  </div>
 </form>
 
