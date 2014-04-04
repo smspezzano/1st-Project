@@ -2,7 +2,9 @@
 	border: 1px solid black;
 }*/
 body {
-	background-color: rgba(236, 240, 241,1.0);
+	/*background-color: rgba(236, 240, 241,1.0);*/
+	background: url('http://bgfons.com/upload/clouds_texture2877.jpg');
+	color: black;
 }
 h1 {
 	font-family: 'Marko One', serif;
@@ -22,19 +24,23 @@ h4 {
 	margin: 5px;
 }
 
-#inputL {
-	float: left;
-	margin-left: 20px;
-	padding: 5px;
-
+#startL {
+	margin-left:auto;
+	margin-right:auto;
+	width: 70%;
 }
 
-#inputR {
-	float: right;
-	margin-left: 20px;
-	padding: 5px;
+#endR {
+	margin-left:auto;
+	margin-right:auto;
+	width: 70%;
 }
  
+.strategy {
+	margin-left:auto;
+	margin-right:auto;
+	width: 70%;
+}
 
 #buttons {
 	/*float: right;*/
@@ -47,18 +53,16 @@ h4 {
 
 #addRoute {
 	margin-top: 60px;
-	margin-left:auto;
-	margin-right:auto;
-	width:70%;
+	margin-left:20px;
+	margin-right:20px;
 }
 
 #map {
-	margin-left: 40px;
 	border: 1px solid white;
 	margin-top: 5px;
 }
 
-#startL {
+/*#startL {
 	float: left;
 	padding: 5px;
 }
@@ -66,7 +70,7 @@ h4 {
 #endL {
 	flaot: right;
 	padding: 5px;
-}
+}*/
 
 .hidden {
 	visibility: false;
@@ -98,7 +102,17 @@ input {
 }
 
 #soNav {
-	background-color: rgba(189, 195, 199,1.0);
+	background-color: rgba(31, 58, 147, .5);
+	font-weight: bold;
+}
+
+.navbar .nav > li > a {
+	color: black;
+	font-size: 18px;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-brand{
+	color: black;
 }
 
 #signUP {
@@ -110,4 +124,16 @@ input {
 #signupheader {
 	margin-left: 350px;
 	margin-right:5px;
+}
+
+.roadGradeStrategy {
+	font-size: 20px;
+}
+
+@media only screen and (max-width: 1200px){
+  #startL {
+	}
+
+	#endR {
+	}
 }
