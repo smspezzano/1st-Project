@@ -40,7 +40,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'launchy'
   gem 'database_cleaner'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'rb-fsevent'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'dotenv-rails'
