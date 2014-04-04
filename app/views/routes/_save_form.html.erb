@@ -1,6 +1,14 @@
-<%= form_for :route, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <%= f.hidden_field(:startLocation, value: params["startLocation"]) %>
-  <%= f.hidden_field(:endLocation, value: params["endLocation"]) %>
-  <%= f.hidden_field(:roadGradeStrategy, value: params['roadGradeStrategy']) %>
-  <%= f.submit "Save Route", class: "btn btn-primary" %>
-<% end %>
+<div class="row">
+  <div class="col-xs-3 col-xs-offset-1 col-sm-2 col-sm-offset-1 
+  col-md-2 col-md-offset-1 col-lg-1 col-lg-offset-2">
+    <%= form_for :route, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+      <%= f.hidden_field(:startLocation, value: params["startLocation"]) %>
+      <%= f.hidden_field(:endLocation, value: params["endLocation"]) %>
+      <%= f.hidden_field(:roadGradeStrategy, value: params['roadGradeStrategy']) %>
+      <%= f.submit "Save Route", class: "btn btn-success" %>
+    <% end %>
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    <button id="displayNarrative" class="btn btn-success">Show Step By Step Route</button>
+  </div>
+</div>

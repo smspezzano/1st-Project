@@ -5,7 +5,6 @@
   <%= render partial: "route_form" %>
   <% unless params["startLocation"].nil? && params["endLocation"].nil?  %>
     <%= render partial: "save_form" %>
-    <button id="displayNarrative" class="btn btn-primary">Show Step By Step Route</button>
   <%end%>
 </div>
 <div id="narrative" class="hidden"></div>

@@ -17,8 +17,8 @@ MQA.EventUtil.observe(window, 'load', function() {
     } else {
       $('#map')[0].style.width = Math.floor(window.innerWidth*.97)+"px";
       $('#map')[0].style.height = Math.floor(window.innerHeight*.9)+"px";
-      $('#narrative')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
-      $('#routeChart')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
+      //$('#narrative')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
+      // $('#routeChart')[0].style.width = Math.floor(window.innerWidth*.9)+"px";
      
     }
   }
