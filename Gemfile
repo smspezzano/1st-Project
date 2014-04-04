@@ -35,6 +35,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+end
+
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'launchy'
