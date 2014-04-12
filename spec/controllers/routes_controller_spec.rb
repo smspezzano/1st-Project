@@ -18,40 +18,14 @@ describe RoutesController do
 			expect(assigns(:route)).to eq(route)
 		end
 
-		# let(:route) do
-  # 		stub_model Route do |route|
-  #   		route.startLocation = '123 Test St, Test, CA'
-		# 		route.endLocation = '321 Foo, Bar, FO'
-		# 		route.roadGradeStrategy = 'AVOID_ALL_HILLS'
-		# 		route.user_id = @user.id
-  # 		end
-  #   end
-
 		it 'should create a new route with the right user id' do
-			# @route = mock_model("Route")
-			# @route = Route.create(
-			# 	startLocation: '123 Test St, Test, CA', 
-			# 	endLocation: '321 Foo, Bar, FO', 
-			# 	roadGradeStrategy: 'AVOID_ALL_HILLS'
-			# )
-			# it "stubs :id" do
-   #  			widget.id.should eql(5)
-  	# 	end
-  	let (:route) do
-  		stub_model Route, startLocation: '123 Test St, Test, CA', endLocation: '321 Foo, Bar, FO', roadGradeStrategy: 'AVOID_ALL_HILLS', user_id: @user.id
-  	end
-  	# stub_model Route do |route|
-   #  		route.startLocation = '123 Test St, Test, CA'
-			# 	route.endLocation = '321 Foo, Bar, FO'
-			# 	route.roadGradeStrategy = 'AVOID_ALL_HILLS'
-			# 	route.user_id = @user.id
-  	# 	end
+  		route = stub_model Route, 
+  			startLocation: '123 Test St, Test, CA', 
+  			endLocation: '321 Foo, Bar, FO', 
+  			roadGradeStrategy: 'AVOID_ALL_HILLS', 
+  			user_id: @user.id
+
   		route.user_id.should eql(@user.id)
-			# @route.startLocation = '123 Test St, Test, CA'
-			# @route.endLocation = '321 Foo, Bar, FO'
-			# @route.roadGradeStrategy = 'AVOID_ALL_HILLS'
-			# @route.user_id = @user.id
-			# expect(Route.find_by(endLocation: '321 Foo, Bar, FO')).not_to eq(nil)
 		end
 
 	end
