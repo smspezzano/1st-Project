@@ -37,19 +37,18 @@ describe RoutesController do
 		end
 
 		it "should be able to create multiple routes" do
-			route1 = stub_model Route,
-  			startLocation: '123 Test St, Test, CA', 
+			route1 = mock_model Route, 
+				startLocation: '123 Test St, Test, CA', 
   			endLocation: '321 Foo, Bar, FO', 
   			roadGradeStrategy: 'AVOID_ALL_HILLS', 
   			user_id: @user.id
-  		
-  		route2 = stub_model Route,
+
+  		route2 = mock_model Route,
 				startLocation: '123 Test St, Test, CA', 
   			endLocation: '321 Foo, Bar, FO', 
   			roadGradeStrategy: 'FAVOR_ALL_HILLS', 
   			user_id: @user.id
-			binding.pry
-			expect(@user.routes.count).to be 2
+			expect(route1.user_id === route2.user_id).to be true
 		end
 
 	end
