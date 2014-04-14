@@ -15,12 +15,15 @@ class RoutesController < ApplicationController
 	end
 
 	def create
-		route= Route.new(startLocation: params[:startLocation], endLocation: params[:endLocation],endLocation: params[:roadGradeStrategy])
-		route.user = current_user
+		route= Route.new(
+			startLocation: params[:startLocation], 
+			endLocation: params[:endLocation], 
+			roadGradeStrategy: params[:roadGradeStrategy]
+		)
+		route.user_id = current_user.id
 		route.save
 
-		#binding.pry
-		redirect_to user_path(route.user)
+		redirect_to user_path(route.user_id)
 	end
 
 	def show
